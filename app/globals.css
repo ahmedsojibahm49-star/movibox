@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-tp font-sans antialiased;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(255, 122, 26, 0.06), transparent 60%),
+    #050505;
+}
+
+/* ---------- Scrollbars ---------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Reusable ---------- */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-10 xl:px-14;
+  }
+  .skeleton {
+    @apply animate-shimmer rounded-lg bg-gradient-to-r from-white/5 via-white/10 to-white/5;
+    background-size: 200% 100%;
+  }
+  .badge-chip {
+    @apply inline-flex items-center gap-1 rounded-badge bg-white/10 px-2 py-0.5 text-[11px] font-medium text-ts;
+  }
+  .input {
+    @apply w-full rounded-btn border border-line bg-white/5 px-3.5 py-2.5 text-sm text-tp outline-none transition-colors placeholder:text-tm;
+  }
+  .input:focus {
+    @apply border-accent/60 bg-white/10;
+  }
+  select.input {
+    @apply appearance-none bg-no-repeat pr-9;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 0.85rem center;
+  }
+  select.input option {
+    @apply bg-base text-tp;
+  }
+}
+
+/* ---------- Player: hide native controls flash ---------- */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Focus visible ring */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.4);
+  border-radius: 8px;
+}
+
+/* The search modal input is the always-focused element; the ring looks like a stray box */
+input.search-input:focus-visible {
+  box-shadow: none;
+}
+
+::selection {
+  background: rgba(255, 122, 26, 0.35);
+}

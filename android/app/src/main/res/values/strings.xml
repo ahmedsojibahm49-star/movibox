@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">StreamBox</string>
+    <string name="title_activity_main">StreamBox</string>
+    <string name="package_name">com.streambox.app</string>
+    <string name="custom_url_scheme">com.streambox.app</string>
+</resources>
